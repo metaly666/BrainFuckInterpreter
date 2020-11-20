@@ -3,10 +3,8 @@ package com.kondak.commands;
 import com.kondak.environment.Environment;
 import com.kondak.implementation.Parser;
 
-import java.util.Deque;
-
 //DESCRIPTION: decrement the data pointer (to point to the next cell to the left).
-public class LeftShiftCommand implements Command {
+public class LeftShiftCommand implements Command, Component {
     private static final char CHAR = '<';
 
     @Override
@@ -21,12 +19,7 @@ public class LeftShiftCommand implements Command {
     }
 
     @Override
-    public void setNode(Deque<Command> node) {
-
-    }
-
-    @Override
-    public void trigger(Parser parser) {
+    public void activate(Parser parser) {
 
     }
 }

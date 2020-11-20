@@ -3,10 +3,8 @@ package com.kondak.commands;
 import com.kondak.environment.Environment;
 import com.kondak.implementation.Parser;
 
-import java.util.Deque;
-
 //DESCRIPTION: output the char at the data pointer.
-public class OutputCommand implements Command {
+public class OutputCommand implements Command, Component {
     private static final char CHAR = '.';
 
     @Override
@@ -21,12 +19,7 @@ public class OutputCommand implements Command {
     }
 
     @Override
-    public void setNode(Deque<Command> node) {
-
-    }
-
-    @Override
-    public void trigger(Parser parser) {
+    public void activate(Parser parser) {
 
     }
 }

@@ -12,7 +12,7 @@ public class Environment {
     private static final int MAX_SIZE = 30_000;
     private int cursor = 0;
 
-    private int[] arr;
+    private final int[] arr;
 
     private static Environment instance;
 

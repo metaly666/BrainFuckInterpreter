@@ -8,14 +8,14 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class CommonBrainFuckCodeValidators implements BrainFuckCodeValidatorsFactory{
-    private Set<BrainFuckCodeValidator> validatorsSet;
+public class CommonBrainFuckCodeValidators implements BrainFuckCodeValidatorsFactory {
+    private final Set<BrainFuckCodeValidator> validatorsSet;
 
     public CommonBrainFuckCodeValidators() {
         validatorsSet = new HashSet<>();
         validatorsSet.addAll(Arrays.asList(
-                 new EmptyValidator(),
-                 new LandauRuleValidator()
+                new EmptyValidator(),
+                new LandauRuleValidator()
         ));
     }
 

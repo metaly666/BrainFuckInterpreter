@@ -1,8 +1,10 @@
 package com.kondak.implementation;
 
 import com.kondak.commands.Command;
+import com.kondak.commands.Component;
 
 import java.util.Deque;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Set;
 
@@ -20,19 +22,22 @@ public class Parser {
         String reverseCode = new StringBuffer(code).reverse().toString();
         Deque<Command> taskList = currentNode.peekFirst();
 
+        Set<Component> components = new HashSet<>();
+        commandsUsed.forEach((component) -> components.add((Component) component));
+
         //traversal from the end of string for the convenience of saving an array to the node(RightBracketCommand)
-        for (char command : reverseCode.toCharArray()) {
-            for (Command commandUsed : commandsUsed) {
+        for (char character : reverseCode.toCharArray()) {
+            for (Component component : components) {
 
                 //if the command is in the set->
-                if (command == commandUsed.getCharacter()) {
+                if (character == component.getCharacter()) {
                     //->check it for node membership->
-                    commandUsed.trigger(this);
+                    component.activate(this);
                     //->if it is a node, task list is changed->
                     //->check the taskList
                     taskList = currentNode.peekFirst();
                     assert taskList != null;
-                    taskList.push(commandUsed);
+                    taskList.push((Command) component);
                 }
             }
         }
