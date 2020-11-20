@@ -1,6 +1,9 @@
 package com.kondak.symbols;
 
 import com.kondak.environment.Environment;
+import com.kondak.implementation.Parser;
+
+import java.util.Deque;
 
 public class LeftShiftSymbol implements Symbol{
     private static final char IMAGE = '<';
@@ -18,6 +21,17 @@ public class LeftShiftSymbol implements Symbol{
 
     @Override
     public void execute() {
-        Environment.LeftShift();
+        Environment environment = Environment.getInstance();
+        environment.leftShift();
+    }
+
+    @Override
+    public void setNode(Deque<Symbol> node) {
+
+    }
+
+    @Override
+    public void trigger(Parser parser) {
+
     }
 }

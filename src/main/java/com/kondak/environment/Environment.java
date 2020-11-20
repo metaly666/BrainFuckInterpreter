@@ -1,54 +1,80 @@
 package com.kondak.environment;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
+import java.util.Arrays;
+
+//Singleton
 public class Environment {
+    private static final Logger log = LogManager.getLogger();
     //In the classic distribution, the array has 30,000 cells, and the pointer begins at the leftmost cell.
     private static final int MAX_SIZE = 30_000;
     private static int cursor = 0;
 
-    private static int[] arr = new int[MAX_SIZE];
+    private static int[] arr;
 
-    public Environment() {
+    private static Environment instance;
+
+    public static Environment getInstance() {
+        if (instance == null) {
+            instance = new Environment();
+            log.info("Work environment initialized");
+        }
+        return instance;
+    }
+
+    private Environment() {
+        arr = new int[MAX_SIZE];
         Arrays.fill(arr, 0);
     }
 
-    public static void RightShift() {
+    public void rightShift() {
         Environment.cursor++;
-        if (cursor > MAX_SIZE-1)
-            throw new Error("stack overflow");
+        if (cursor > MAX_SIZE - 1) {
+            log.error("Out of bounds");
+            throw new ArrayIndexOutOfBoundsException("Max index is " + (MAX_SIZE - 1));
+        }
     }
-    public static void LeftShift() {
+
+    public void leftShift() {
         Environment.cursor--;
-        if (cursor < 0)
-            throw new Error("request to a non-existent memory location");
+        if (cursor < 0) {
+            log.error("Out of bounds");
+            throw new ArrayIndexOutOfBoundsException("index cannot be less than 0");
+        }
     }
-    public static void Increment() {
+
+    public void increment() {
         Environment.arr[cursor]++;
     }
-    public static void Decrement() {
+
+    public void decrement() {
         Environment.arr[cursor]--;
     }
-    public static void Output() {
+
+    public void output() {
         char letter = (char) Environment.arr[cursor];
         System.out.print(letter);
     }
-    public static void Input() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("enter integer:");
 
-        while (!sc.hasNextInt()) {
-            sc.next();
-            System.out.println("Something went wrong...Try entering the integer again\n>>");
-        }
-        int number = sc.nextInt();
-        sc.close();
+    public void input() {
+        InputInteger inputInteger = new InputInteger();
+        int number = inputInteger.getIntFromUser();
 
         Environment.arr[cursor] = number;
     }
-    public static void OutputInteger() {
+
+    public void outputInteger() {
         int integer = Environment.arr[cursor];
-        System.out.print(integer);
+        System.out.print(integer + " ");
+    }
+
+    public int getValue(int cursor) {
+        return Environment.arr[cursor];
+    }
+
+    public int getCursor() {
+        return cursor;
     }
 }

@@ -1,6 +1,9 @@
 package com.kondak.symbols;
 
 import com.kondak.environment.Environment;
+import com.kondak.implementation.Parser;
+
+import java.util.Deque;
 
 public class OutputIntegerSymbol implements Symbol{
     private static final char IMAGE = ':';
@@ -18,6 +21,17 @@ public class OutputIntegerSymbol implements Symbol{
 
     @Override
     public void execute() {
-        Environment.OutputInteger();
+        Environment environment = Environment.getInstance();
+        environment.outputInteger();
+    }
+
+    @Override
+    public void setNode(Deque<Symbol> node) {
+
+    }
+
+    @Override
+    public void trigger(Parser parser) {
+
     }
 }

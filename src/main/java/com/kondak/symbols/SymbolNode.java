@@ -1,7 +1,11 @@
 package com.kondak.symbols;
 
-public interface SymbolNode {
-    void add(Symbol symbol);
+import com.kondak.implementation.Parser;
 
-    void remove(Symbol symbol);
+import java.util.Deque;
+
+public interface SymbolNode {
+    void setNode(Deque<Symbol> node);
+
+    void trigger(Parser parser);
 }

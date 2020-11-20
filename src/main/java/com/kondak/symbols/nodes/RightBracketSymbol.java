@@ -1,4 +1,9 @@
-package com.kondak.symbols;
+package com.kondak.symbols.nodes;
+
+import com.kondak.implementation.Parser;
+import com.kondak.symbols.Symbol;
+
+import java.util.Deque;
 
 public class RightBracketSymbol implements Symbol {
     private static final char IMAGE = ']';
@@ -18,4 +23,15 @@ public class RightBracketSymbol implements Symbol {
     public void execute() {
 
     }
+
+    @Override
+    public void setNode(Deque<Symbol> node) {
+
+    }
+
+    @Override
+    public void trigger(Parser parser) {
+        parser.pushNewNode();
+    }
+
 }

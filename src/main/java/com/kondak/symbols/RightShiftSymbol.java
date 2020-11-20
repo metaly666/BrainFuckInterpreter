@@ -1,8 +1,11 @@
 package com.kondak.symbols;
 
 import com.kondak.environment.Environment;
+import com.kondak.implementation.Parser;
 
-public class RightShiftSymbol implements Symbol{
+import java.util.Deque;
+
+public class RightShiftSymbol implements Symbol {
     private static final char IMAGE = '>';
     private static final String DESCRIPTION = "increment the data pointer (to point to the next cell to the right).";
 
@@ -18,6 +21,17 @@ public class RightShiftSymbol implements Symbol{
 
     @Override
     public void execute() {
-        Environment.RightShift();
+        Environment environment = Environment.getInstance();
+        environment.rightShift();
+    }
+
+    @Override
+    public void setNode(Deque<Symbol> node) {
+
+    }
+
+    @Override
+    public void trigger(Parser parser) {
+
     }
 }

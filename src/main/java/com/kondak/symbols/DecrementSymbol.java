@@ -1,8 +1,11 @@
 package com.kondak.symbols;
 
 import com.kondak.environment.Environment;
+import com.kondak.implementation.Parser;
 
-public class DecrementSymbol implements Symbol{
+import java.util.Deque;
+
+public class DecrementSymbol implements Symbol {
     private static final char IMAGE = '-';
     private static final String DESCRIPTION = "decrement (decrease by one) the integer at the data pointer.";
 
@@ -18,6 +21,17 @@ public class DecrementSymbol implements Symbol{
 
     @Override
     public void execute() {
-        Environment.Decrement();
+        Environment environment = Environment.getInstance();
+        environment.decrement();
+    }
+
+    @Override
+    public void setNode(Deque<Symbol> node) {
+
+    }
+
+    @Override
+    public void trigger(Parser parser) {
+
     }
 }
