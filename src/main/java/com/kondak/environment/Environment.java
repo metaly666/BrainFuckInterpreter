@@ -10,6 +10,9 @@ public class Environment {
     private static final Logger log = LogManager.getLogger();
     //In the classic distribution, the array has 30,000 cells, and the pointer begins at the leftmost cell.
     private static final int MAX_SIZE = 30_000;
+    //Max Integer
+    private static final int MAX_VALUE = 2_147_483_647;
+    private static final int MIN_VALUE = 0;
     private int cursor = 0;
 
     private final int[] arr;
@@ -46,11 +49,21 @@ public class Environment {
     }
 
     public void increment() {
-        this.arr[cursor]++;
+        if (this.arr[cursor] < MAX_VALUE) {
+            this.arr[cursor]++;
+        } else {
+            log.error("Out of bounds");
+            throw new ArrayIndexOutOfBoundsException("Value cannot be biggest than " + MAX_VALUE);
+        }
     }
 
     public void decrement() {
-        this.arr[cursor]--;
+        if (this.arr[cursor] > MIN_VALUE) {
+            this.arr[cursor]--;
+        } else {
+            log.error("Out of bounds");
+            throw new ArrayIndexOutOfBoundsException("Value cannot be less than " + MIN_VALUE);
+        }
     }
 
     public void output() {
