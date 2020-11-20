@@ -25,15 +25,15 @@ public class Parser {
         Set<Component> components = new HashSet<>();
         commandsUsed.forEach((component) -> components.add((Component) component));
 
-        //traversal from the end of string for the convenience of saving an array to the node(RightBracketCommand)
+        //traversal from the end of string for the convenience of saving an array to the node(RightBracketCommand is Composite)
         for (char character : reverseCode.toCharArray()) {
             for (Component component : components) {
 
                 //if the command is in the set->
                 if (character == component.getCharacter()) {
-                    //->check it for node membership->
+                    //->check it for node(Composite) membership->
                     component.activate(this);
-                    //->if it is a node, task list is changed->
+                    //->if it is a node(Composite), task list is changed->
                     //->check the taskList
                     taskList = currentNode.peekFirst();
                     assert taskList != null;
