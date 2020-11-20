@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class CommonBrainFuckCodeValidators implements BrainFuckCodeValidatorsFactory{
-    private static Set<BrainFuckCodeValidator> validatorsSet;
+    private Set<BrainFuckCodeValidator> validatorsSet;
 
     public CommonBrainFuckCodeValidators() {
         validatorsSet = new HashSet<>();

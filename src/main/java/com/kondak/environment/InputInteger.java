@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class InputInteger {
     private static final Logger log = LogManager.getLogger();
+
     public int getIntFromUser() {
         Scanner sc = new Scanner(System.in);
         log.info("Scanner opened");

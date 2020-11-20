@@ -8,7 +8,7 @@ public class EmptyValidator implements BrainFuckCodeValidator {
 
     @Override
     public void validate(String code) {
-        if (code == "" || code == null) {
+        if (code.isEmpty() || code == null) {
             log.error("Caught empty expression");
             throw new IllegalArgumentException("Expression is empty");
         }

@@ -1,13 +1,13 @@
 package com.kondak.implementation;
 
-import com.kondak.symbols.Symbol;
+import com.kondak.commands.Command;
 
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Set;
 
 public class Parser {
-    private Deque<Deque<Symbol>> currentNode;
+    private Deque<Deque<Command>> currentNode;
 
     //Parser composite the tasks as tree
     public Parser() {
@@ -16,22 +16,23 @@ public class Parser {
         });
     }
 
-    public Deque<Symbol> getTaskList(String code, Set<Symbol> symbolsUsed) {
+    public Deque<Command> getTaskList(String code, Set<Command> commandsUsed) {
         String reverseCode = new StringBuffer(code).reverse().toString();
-        Deque<Symbol> taskList = currentNode.peekFirst();
+        Deque<Command> taskList = currentNode.peekFirst();
 
-        //traversal from the end of string for the convenience of saving an array to the node(RightBracketSymbol)
-        for (char symbol : reverseCode.toCharArray()) {
-            for (Symbol symbolUsed : symbolsUsed) {
+        //traversal from the end of string for the convenience of saving an array to the node(RightBracketCommand)
+        for (char command : reverseCode.toCharArray()) {
+            for (Command commandUsed : commandsUsed) {
 
-                //if the symbol is in the set->
-                if (symbol == symbolUsed.getImage()) {
+                //if the command is in the set->
+                if (command == commandUsed.getCharacter()) {
                     //->check it for node membership->
-                    symbolUsed.trigger(this);
-                    //-> if it is a node, task list is changed->
+                    commandUsed.trigger(this);
+                    //->if it is a node, task list is changed->
                     //->check the taskList
                     taskList = currentNode.peekFirst();
-                    taskList.push(symbolUsed);
+                    assert taskList != null;
+                    taskList.push(commandUsed);
                 }
             }
         }
@@ -40,10 +41,10 @@ public class Parser {
     }
 
     public void pushNewNode() {
-        currentNode.push(new LinkedList<Symbol>());
+        currentNode.push(new LinkedList<>());
     }
 
-    public Deque<Symbol> popNewNode() {
+    public Deque<Command> popNewNode() {
         return currentNode.pop();
     }
 }

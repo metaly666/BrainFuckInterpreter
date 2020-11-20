@@ -10,9 +10,9 @@ public class Environment {
     private static final Logger log = LogManager.getLogger();
     //In the classic distribution, the array has 30,000 cells, and the pointer begins at the leftmost cell.
     private static final int MAX_SIZE = 30_000;
-    private static int cursor = 0;
+    private int cursor = 0;
 
-    private static int[] arr;
+    private int[] arr;
 
     private static Environment instance;
 
@@ -30,31 +30,31 @@ public class Environment {
     }
 
     public void rightShift() {
-        Environment.cursor++;
-        if (cursor > MAX_SIZE - 1) {
+        this.cursor++;
+        if (this.cursor > MAX_SIZE - 1) {
             log.error("Out of bounds");
             throw new ArrayIndexOutOfBoundsException("Max index is " + (MAX_SIZE - 1));
         }
     }
 
     public void leftShift() {
-        Environment.cursor--;
-        if (cursor < 0) {
+        this.cursor--;
+        if (this.cursor < 0) {
             log.error("Out of bounds");
             throw new ArrayIndexOutOfBoundsException("index cannot be less than 0");
         }
     }
 
     public void increment() {
-        Environment.arr[cursor]++;
+        this.arr[cursor]++;
     }
 
     public void decrement() {
-        Environment.arr[cursor]--;
+        this.arr[cursor]--;
     }
 
     public void output() {
-        char letter = (char) Environment.arr[cursor];
+        char letter = (char) this.arr[this.cursor];
         System.out.print(letter);
     }
 
@@ -62,19 +62,19 @@ public class Environment {
         InputInteger inputInteger = new InputInteger();
         int number = inputInteger.getIntFromUser();
 
-        Environment.arr[cursor] = number;
+        this.arr[this.cursor] = number;
     }
 
     public void outputInteger() {
-        int integer = Environment.arr[cursor];
+        int integer = this.arr[this.cursor];
         System.out.print(integer + " ");
     }
 
     public int getValue(int cursor) {
-        return Environment.arr[cursor];
+        return this.arr[cursor];
     }
 
     public int getCursor() {
-        return cursor;
+        return this.cursor;
     }
 }

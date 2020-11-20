@@ -1,10 +1,10 @@
 package com.kondak;
 
+import com.kondak.commands.Command;
+import com.kondak.commands.factories.BrainFuckCommandsFactory;
+import com.kondak.commands.factories.ClassicBrainFuckCommandsFactory;
 import com.kondak.implementation.Executable;
 import com.kondak.implementation.Executor;
-import com.kondak.symbols.Symbol;
-import com.kondak.symbols.factories.BrainFuckSymbolsFactory;
-import com.kondak.symbols.factories.ClassicBrainFuckSymbolsFactory;
 import com.kondak.validators.BrainFuckCodeValidator;
 import com.kondak.validators.factories.BrainFuckCodeValidatorsFactory;
 import com.kondak.validators.factories.CommonBrainFuckCodeValidators;
@@ -29,12 +29,12 @@ public class Engine {
         //Validators
         BrainFuckCodeValidatorsFactory brainFuckCodeValidatorsFactory = new CommonBrainFuckCodeValidators();
         Set<BrainFuckCodeValidator> brainFuckCodeValidatorSet = brainFuckCodeValidatorsFactory.createValidatorsSet();
-        //Symbols
-        BrainFuckSymbolsFactory brainFuckSymbolsFactory = new ClassicBrainFuckSymbolsFactory();
-        Set<Symbol> symbolSet = brainFuckSymbolsFactory.createSymbolsSet();
+        //Commands
+        BrainFuckCommandsFactory brainFuckCommandsFactory = new ClassicBrainFuckCommandsFactory();
+        Set<Command> commandSet = brainFuckCommandsFactory.createCommandsSet();
 
         executor = new Executor();
         executor.setValidators(brainFuckCodeValidatorSet);
-        executor.setSymbolsUsed(symbolSet);
+        executor.setCommandsUsed(commandSet);
     }
 }
