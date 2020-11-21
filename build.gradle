@@ -1,0 +1,27 @@
+apply plugin: 'java'
+
+group = 'com.kondak'
+version = '1.0.1'
+description = 'BrainFuckInterpreter'
+java.sourceCompatibility = JavaVersion.VERSION_1_8
+
+repositories {
+    jcenter()
+}
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+    testImplementation(
+            'org.junit.jupiter:junit-jupiter-api:5.1.0'
+    )
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.14.0'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.14.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.1.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.1.1'
+    testCompile 'org.junit.jupiter:junit-jupiter-params:5.1.1'
+}
+
+
