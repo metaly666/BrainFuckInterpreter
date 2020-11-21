@@ -1,7 +1,11 @@
 package com.kondak.commands.factories;
 
-import com.kondak.commands.*;
 import com.kondak.commands.Command;
+import com.kondak.commands.DecrementCommand;
+import com.kondak.commands.IncrementCommand;
+import com.kondak.commands.LeftShiftCommand;
+import com.kondak.commands.OutputCommand;
+import com.kondak.commands.RightShiftCommand;
 import com.kondak.commands.nodes.LeftBracketCommand;
 import com.kondak.commands.nodes.RightBracketCommand;
 
@@ -19,7 +23,6 @@ public class ClassicBrainFuckCommandsFactory implements BrainFuckCommandsFactory
                 new DecrementCommand(),
                 new RightShiftCommand(),
                 new LeftShiftCommand(),
-                new InputCommand(),
                 new OutputCommand(),
                 new LeftBracketCommand(),
                 new RightBracketCommand()

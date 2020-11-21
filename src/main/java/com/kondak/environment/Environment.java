@@ -10,12 +10,14 @@ public class Environment {
     private static final Logger log = LogManager.getLogger();
     //In the classic distribution, the array has 30,000 cells, and the pointer begins at the leftmost cell.
     private static final int MAX_SIZE = 30_000;
-    //Max Integer
-    private static final int MAX_VALUE = 2_147_483_647;
+    //Max Char
+    private static final int MAX_VALUE = 65535;
     private static final int MIN_VALUE = 0;
     private int cursor = 0;
 
     private final int[] arr;
+
+    private String outputArr = "";
 
     private static Environment instance;
 
@@ -33,16 +35,18 @@ public class Environment {
     }
 
     public void rightShift() {
-        this.cursor++;
-        if (this.cursor > MAX_SIZE - 1) {
+        if (this.cursor < MAX_SIZE - 1) {
+            this.cursor++;
+        } else {
             log.error("Out of bounds");
             throw new ArrayIndexOutOfBoundsException("Max index is " + (MAX_SIZE - 1));
         }
     }
 
     public void leftShift() {
-        this.cursor--;
-        if (this.cursor < 0) {
+        if (this.cursor > 0) {
+            this.cursor--;
+        } else {
             log.error("Out of bounds");
             throw new ArrayIndexOutOfBoundsException("index cannot be less than 0");
         }
@@ -68,19 +72,11 @@ public class Environment {
 
     public void output() {
         char letter = (char) this.arr[this.cursor];
-        System.out.print(letter);
+        this.outputArr += (String.valueOf(letter));
     }
 
-    public void input() {
-        InputInteger inputInteger = new InputInteger();
-        int number = inputInteger.getIntFromUser();
-
-        this.arr[this.cursor] = number;
-    }
-
-    public void outputInteger() {
-        int integer = this.arr[this.cursor];
-        System.out.print(integer + " ");
+    public String getOutputArr() {
+        return outputArr;
     }
 
     public int getValue(int cursor) {
@@ -89,5 +85,10 @@ public class Environment {
 
     public int getCursor() {
         return this.cursor;
+    }
+
+    public void reset() {
+        this.cursor = 0;
+        Arrays.fill(this.arr, 0);
     }
 }

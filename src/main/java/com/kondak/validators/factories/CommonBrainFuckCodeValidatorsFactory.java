@@ -8,10 +8,10 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class CommonBrainFuckCodeValidators implements BrainFuckCodeValidatorsFactory {
+public class CommonBrainFuckCodeValidatorsFactory implements BrainFuckCodeValidatorsFactory {
     private final Set<BrainFuckCodeValidator> validatorsSet;
 
-    public CommonBrainFuckCodeValidators() {
+    public CommonBrainFuckCodeValidatorsFactory() {
         validatorsSet = new HashSet<>();
         validatorsSet.addAll(Arrays.asList(
                 new EmptyValidator(),

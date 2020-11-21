@@ -7,7 +7,7 @@ import com.kondak.implementation.Executable;
 import com.kondak.implementation.Executor;
 import com.kondak.validators.BrainFuckCodeValidator;
 import com.kondak.validators.factories.BrainFuckCodeValidatorsFactory;
-import com.kondak.validators.factories.CommonBrainFuckCodeValidators;
+import com.kondak.validators.factories.CommonBrainFuckCodeValidatorsFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -27,7 +27,7 @@ public class Engine {
 
     private void init() {
         //Validators
-        BrainFuckCodeValidatorsFactory brainFuckCodeValidatorsFactory = new CommonBrainFuckCodeValidators();
+        BrainFuckCodeValidatorsFactory brainFuckCodeValidatorsFactory = new CommonBrainFuckCodeValidatorsFactory();
         Set<BrainFuckCodeValidator> brainFuckCodeValidatorSet = brainFuckCodeValidatorsFactory.createValidatorsSet();
         //Commands
         BrainFuckCommandsFactory brainFuckCommandsFactory = new ClassicBrainFuckCommandsFactory();

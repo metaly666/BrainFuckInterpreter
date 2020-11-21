@@ -1,6 +1,7 @@
 package com.kondak.implementation;
 
 import com.kondak.commands.Command;
+import com.kondak.environment.Environment;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -21,6 +22,11 @@ public class Executor extends AbstractExecutor {
         log.info("Task list received");
         taskList.forEach(Command::execute);
         log.info("Task list done");
-
+        log.info("Getting answer from environment");
+        Environment environment = Environment.getInstance();
+        String output = environment.getOutputArr();
+        log.info("Printing answer...");
+        System.out.print(output);
+        log.info("Here he is");
     }
 }

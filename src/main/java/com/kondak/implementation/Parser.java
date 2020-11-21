@@ -17,7 +17,7 @@ public class Parser {
     //Parser composite the tasks as tree
     public Parser() {
         currentNode = new LinkedList<>();
-        currentNode.addFirst(new LinkedList<>() {
+        currentNode.addFirst(new LinkedList<Command>() {
         });
     }
 
