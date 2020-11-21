@@ -13,13 +13,13 @@ class ProgramTest {
 
     @Test()
     void runHelloWorldCode() {
-        String expected = "Hello World!\n";
+        String expected = "Hello World!";
 
         CODE = "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.";
         engine.start(CODE);
 
         Environment environment = Environment.getInstance();
-        String actual = environment.getOutputArr();
+        String actual = environment.getOutputArr().trim();
 
         assertArrayEquals(expected.toCharArray(), actual.toCharArray());
     }
