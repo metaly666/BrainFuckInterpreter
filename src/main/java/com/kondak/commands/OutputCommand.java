@@ -3,7 +3,11 @@ package com.kondak.commands;
 import com.kondak.environment.Environment;
 import com.kondak.implementation.Parser;
 
-//DESCRIPTION: output the char at the data pointer.
+/**
+ * DESCRIPTION(Component): the leaf
+ * <p>
+ * DESCRIPTION(Command): output the char at the data pointer.
+ */
 public class OutputCommand implements Command, Component {
     private static final char CHAR = '.';
 

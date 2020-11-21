@@ -5,12 +5,16 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.Arrays;
 
-//Singleton
+/**
+ * Class Environment (singleton) contains the main working array and methods that change it
+ */
 public class Environment {
     private static final Logger log = LogManager.getLogger();
+
     //In the classic distribution, the array has 30,000 cells, and the pointer begins at the leftmost cell.
     private static final int MAX_SIZE = 30_000;
-    //Max Char
+
+    //Max char code is 65535
     private static final int MAX_VALUE = 65535;
     private static final int MIN_VALUE = 0;
     private int cursor = 0;

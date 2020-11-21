@@ -3,7 +3,11 @@ package com.kondak.commands;
 import com.kondak.environment.Environment;
 import com.kondak.implementation.Parser;
 
-//DESCRIPTION: increment the data pointer (to point to the next cell to the right).
+/**
+ * DESCRIPTION(Component): the leaf
+ * <p>
+ * DESCRIPTION(Command): increment the data pointer (to point to the next cell to the right).
+ */
 public class RightShiftCommand implements Command, Component {
     private static final char CHAR = '>';
 

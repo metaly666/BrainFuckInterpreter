@@ -7,9 +7,14 @@ import com.kondak.implementation.Parser;
 
 import java.util.Deque;
 
-//DESCRIPTION: if the integer at the data pointer is zero,
-//then instead of moving the instruction pointer forward to the next command,
-//jump it forward to the command after the matching ] command.
+/**
+ * DESCRIPTION(Component): the Container (aka composite) is an element that has sub-elements:
+ * leaves or other containers.
+ * <p>
+ * DESCRIPTION(Command): if the integer at the data pointer is zero,
+ * then instead of moving the instruction pointer forward to the next command,
+ * jump it forward to the command after the matching ] command.
+ */
 public class LeftBracketCommand implements Command, Component {
     private static final char CHAR = '[';
 

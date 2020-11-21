@@ -13,6 +13,9 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.Set;
 
+/**
+ * class Engine is initializer that launches the Executor
+ */
 public class Engine {
     private static final Logger log = LogManager.getLogger();
     private static Executable executor;

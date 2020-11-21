@@ -10,6 +10,9 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Set;
 
+/**
+ * class Parser parses the String of the original brainfuck code and returns the task tree for the Executor class
+ */
 public class Parser {
     private static final Logger log = LogManager.getLogger();
     private Deque<Deque<Command>> currentNode;
@@ -53,10 +56,12 @@ public class Parser {
         return taskList;
     }
 
+    //if the parser meets a right bracket, a new array is created
     public void pushNewNode() {
         currentNode.push(new LinkedList<>());
     }
 
+    //if the parser meets a left bracket(container), the array is placed in it
     public Deque<Command> popNewNode() {
         return currentNode.pop();
     }

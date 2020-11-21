@@ -7,6 +7,9 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.Deque;
 
+/**
+ * The class contains executeBrainFuckCode method that validate code and traverses the entire task tree and triggers execution
+ */
 public class Executor extends AbstractExecutor {
     private static final Logger log = LogManager.getLogger();
 
