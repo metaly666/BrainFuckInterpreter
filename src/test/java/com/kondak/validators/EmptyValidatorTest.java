@@ -33,6 +33,7 @@ class EmptyValidatorTest {
                 "Expression is empty");
     }
 
+    //same as previous test, can be removed as duplicate
     @DisplayName("throw IllegalArgumentException when CODE with empty spaces.")
     @Test
     void testEmptySpacesCode() {
