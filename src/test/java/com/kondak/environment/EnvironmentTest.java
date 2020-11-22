@@ -26,6 +26,7 @@ class EnvironmentTest {
     @Test
     void testRightShift() {
         testInstance.reset();
+        //you should also check this state and then that it was changed (everywhere)
         testInstance.rightShift();
         assertEquals(1, testInstance.getCursor());
     }
