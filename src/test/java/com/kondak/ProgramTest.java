@@ -24,6 +24,7 @@ class ProgramTest {
         assertArrayEquals(expected.toCharArray(), actual.toCharArray());
     }
 
+    //what do you check here?
     @Test()
     void runNestedBrackets() {
         Environment environment = Environment.getInstance();
