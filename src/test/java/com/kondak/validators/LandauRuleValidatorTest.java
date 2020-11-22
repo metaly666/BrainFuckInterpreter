@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+//You should add test for positive flow either
 class LandauRuleValidatorTest {
     private static BrainFuckCodeValidator testInstance;
     private String CODE;
