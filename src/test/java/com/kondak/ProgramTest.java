@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+//You should move testing of another classes to the separate test classes(e.g. ExecutorTest)
 class ProgramTest {
     private static final Engine engine = new Engine();
     private String CODE;
