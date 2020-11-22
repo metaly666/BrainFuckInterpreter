@@ -16,6 +16,7 @@ public class LandauRuleValidator implements BrainFuckCodeValidator {
         int leftBracketsCount = 0;
         int rightBracketsCount = 0;
 
+        //possible NPE as code was not checked if it is null
         for (char symbol : code.toCharArray()) {
             if (symbol == LEFT_BRACKETS_SYMBOL) {
                 leftBracketsCount++;
