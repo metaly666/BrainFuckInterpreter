@@ -15,17 +15,21 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+//where are tests for public methods pushNewNode() and popNewNode()?
 class ParserTest {
 
     @Test
     void getTaskListTestIncrementCommand() {
+        //You can have the only parser obj and mocked Component obj in all methods
         Parser parser = new Parser();
         Component incrementCommand = mock(IncrementCommand.class);
         when(incrementCommand.getCharacter()).thenReturn('+');
         Set<Command> commandSet = new HashSet<>();
         commandSet.add((Command) incrementCommand);
+        //redundant var
         String CODE = "+";
 
+        //It is not necessary to check all CODES(+,-,> etc) as in all cases java code is the same. You must cover all branches of the java code instead
         assertArrayEquals(commandSet.toArray(), parser.getTaskList(CODE, commandSet).toArray());
     }
 
